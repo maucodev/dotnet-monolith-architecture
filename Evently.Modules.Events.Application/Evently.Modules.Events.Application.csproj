@@ -9,5 +9,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstractions\Data\" />
+    <Folder Include="Abstractions\Exceptions\" />
+    <Folder Include="Abstractions\Messaging\" />
+    <Folder Include="Categories\CreateCategory\" />
+    <Folder Include="Categories\GetCategories\" />
+    <Folder Include="Events\CancelEvent\" />
+    <Folder Include="Events\GetEvents\" />
+    <Folder Include="Events\RescheduleEvent\" />
+    <Folder Include="Events\PublishEvent\" />
+    <Folder Include="TicketTypes\GetTicketType\" />
+    <Folder Include="TicketTypes\GetTicketTypes\" />
   </ItemGroup>
 </Project>

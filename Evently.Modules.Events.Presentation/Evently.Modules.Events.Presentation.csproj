@@ -5,4 +5,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\Evently.Modules.Events.Application\Evently.Modules.Events.Application.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="ApiResults\" />
+	</ItemGroup>
 </Project>

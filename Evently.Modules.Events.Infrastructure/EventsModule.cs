@@ -1,7 +1,15 @@
-﻿using Evently.Modules.Events.Application.Abstractions.Data;
+﻿using Evently.Modules.Events.Application.Abstractions.Clock;
+using Evently.Modules.Events.Application.Abstractions.Data;
+using Evently.Modules.Events.Domain.Categories;
 using Evently.Modules.Events.Domain.Events;
+using Evently.Modules.Events.Domain.TicketTypes;
+using Evently.Modules.Events.Infrastructure.Categories;
+using Evently.Modules.Events.Infrastructure.Clock;
+using Evently.Modules.Events.Infrastructure.Data;
 using Evently.Modules.Events.Infrastructure.Database;
 using Evently.Modules.Events.Infrastructure.Events;
+using Evently.Modules.Events.Infrastructure.TicketTypes;
+using Evently.Modules.Events.Presentation.Categories;
 using Evently.Modules.Events.Presentation.Events;
 using FluentValidation;
 using Microsoft.AspNetCore.Routing;
@@ -19,6 +27,7 @@ public static class EventsModule
     public static void MapEndpoints(IEndpointRouteBuilder app)
     {
         EventEndpoints.MapEndpoints(app);
+        CategoryEndpoints.MapEndpoints(app);
     }
 
     public static void AddEventsModule(this IServiceCollection services, IConfiguration configuration)
@@ -30,10 +39,10 @@ public static class EventsModule
 
         services.AddValidatorsFromAssembly(Application.AssemblyReference.Assembly, includeInternalTypes: true);
 
-        services.AddPersistence(configuration);
+        services.AddInfrastructure(configuration);
     }
 
-    private static void AddPersistence(this IServiceCollection services, IConfiguration configuration)
+    private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         string dbConnectionString = configuration.GetConnectionString("Database")!;
 
@@ -41,7 +50,9 @@ public static class EventsModule
 
         services.TryAddSingleton(dataSource);
 
-        services.AddScoped<IDbConnectionFactory, IDbConnectionFactory>();
+        services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
+
+        services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         services.AddDbContext<EventsDbContext>(options =>
         {
@@ -54,8 +65,10 @@ public static class EventsModule
                 .UseSnakeCaseNamingConvention();
         });
 
-        services.AddScoped<IEventRepository, EventRepository>();
-
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<EventsDbContext>());
+
+        services.AddScoped<IEventRepository, EventRepository>();
+        services.AddScoped<ITicketTypeRepository, TicketTypeRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
     }
 }
