@@ -2,10 +2,16 @@ using Evently.Api.Extensions;
 using Evently.Common.Application;
 using Evently.Common.Infrastructure;
 using Evently.Modules.Events.Infrastructure;
+using Serilog;
 
 #pragma warning disable S6966
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((context, config) =>
+{
+    config.ReadFrom.Configuration(context.Configuration);
+});
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -34,5 +40,7 @@ if (app.Environment.IsDevelopment())
 EventsModule.MapEndpoints(app);
 
 app.UseHttpsRedirection();
+
+app.UseSerilogRequestLogging();
 
 app.Run();
