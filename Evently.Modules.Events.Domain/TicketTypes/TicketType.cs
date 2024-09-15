@@ -1,6 +1,6 @@
-﻿using Evently.Modules.Events.Domain.Abstractions;
-using Evently.Modules.Events.Domain.Events;
+﻿using Evently.Modules.Events.Domain.Events;
 using System;
+using Evently.Common.Domain;
 using Evently.Modules.Events.Domain.TicketTypes.DomainEvents;
 
 namespace Evently.Modules.Events.Domain.TicketTypes;

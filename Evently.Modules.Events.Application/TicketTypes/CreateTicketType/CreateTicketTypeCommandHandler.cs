@@ -1,11 +1,11 @@
 ﻿using Evently.Modules.Events.Application.Abstractions.Data;
-using Evently.Modules.Events.Application.Abstractions.Messaging;
-using Evently.Modules.Events.Domain.Abstractions;
 using Evently.Modules.Events.Domain.Events;
 using Evently.Modules.Events.Domain.TicketTypes;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
+using Evently.Common.Application.Messaging;
+using Evently.Common.Domain;
 
 namespace Evently.Modules.Events.Application.TicketTypes.CreateTicketType;
 

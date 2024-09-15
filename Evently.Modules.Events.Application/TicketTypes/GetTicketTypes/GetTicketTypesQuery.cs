@@ -1,6 +1,6 @@
-﻿using Evently.Modules.Events.Application.Abstractions.Messaging;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
+using Evently.Common.Application.Messaging;
 using Evently.Modules.Events.Application.Events.GetEvent;
 
 namespace Evently.Modules.Events.Application.TicketTypes.GetTicketTypes;

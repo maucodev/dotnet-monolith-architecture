@@ -1,7 +1,7 @@
 ﻿using System.Data.Common;
 using System.Threading.Tasks;
 
-namespace Evently.Modules.Events.Application.Abstractions.Data;
+namespace Evently.Common.Application.Data;
 
 public interface IDbConnectionFactory
 {

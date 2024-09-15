@@ -1,10 +1,10 @@
-﻿using Evently.Modules.Events.Application.Abstractions.Clock;
-using Evently.Modules.Events.Application.Abstractions.Data;
-using Evently.Modules.Events.Application.Abstractions.Messaging;
-using Evently.Modules.Events.Domain.Abstractions;
+﻿using Evently.Modules.Events.Application.Abstractions.Data;
 using Evently.Modules.Events.Domain.Events;
 using System.Threading.Tasks;
 using System.Threading;
+using Evently.Common.Application.Clock;
+using Evently.Common.Application.Messaging;
+using Evently.Common.Domain;
 
 namespace Evently.Modules.Events.Application.Events.CancelEvent;
 

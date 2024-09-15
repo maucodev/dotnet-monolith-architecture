@@ -1,7 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
-namespace Evently.Modules.Events.Domain.Abstractions;
+namespace Evently.Common.Domain;
 
 public class Result
 {

@@ -1,11 +1,11 @@
-﻿using Evently.Modules.Events.Application.Abstractions.Data;
-using Evently.Modules.Events.Application.Abstractions.Messaging;
-using Evently.Modules.Events.Domain.Abstractions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Common;
 using System.Threading.Tasks;
 using System.Threading;
 using Dapper;
+using Evently.Common.Application.Data;
+using Evently.Common.Application.Messaging;
+using Evently.Common.Domain;
 using Evently.Modules.Events.Application.Categories.GetCategory;
 
 namespace Evently.Modules.Events.Application.Categories.GetCategories;

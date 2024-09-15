@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Routing;
 using System;
+using Evently.Common.Domain;
 using Evently.Modules.Events.Application.TicketTypes.UpdateTicketTypePrice;
-using Evently.Modules.Events.Domain.Abstractions;
 using Evently.Modules.Events.Presentation.ApiResults;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;

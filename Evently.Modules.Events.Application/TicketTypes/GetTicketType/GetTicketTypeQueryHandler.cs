@@ -1,12 +1,11 @@
-﻿using Evently.Modules.Events.Application.Abstractions.Data;
-using Evently.Modules.Events.Application.Abstractions.Messaging;
-using Evently.Modules.Events.Application.Events.GetEvent;
-using Evently.Modules.Events.Domain.Abstractions;
-using Evently.Modules.Events.Domain.TicketTypes;
+﻿using Evently.Modules.Events.Domain.TicketTypes;
 using System.Data.Common;
 using System.Threading.Tasks;
 using System.Threading;
 using Dapper;
+using Evently.Common.Application.Data;
+using Evently.Common.Application.Messaging;
+using Evently.Common.Domain;
 
 namespace Evently.Modules.Events.Application.TicketTypes.GetTicketType;
 

@@ -1,9 +1,9 @@
 ﻿using Evently.Modules.Events.Application.Abstractions.Data;
-using Evently.Modules.Events.Application.Abstractions.Messaging;
-using Evently.Modules.Events.Domain.Abstractions;
 using Evently.Modules.Events.Domain.Categories;
 using System.Threading.Tasks;
 using System.Threading;
+using Evently.Common.Application.Messaging;
+using Evently.Common.Domain;
 
 namespace Evently.Modules.Events.Application.Categories.ArchiveCategory;
 

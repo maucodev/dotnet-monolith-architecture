@@ -1,7 +1,7 @@
-﻿using Evently.Modules.Events.Domain.Abstractions;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System;
+using Evently.Common.Domain;
 
 namespace Evently.Modules.Events.Presentation.ApiResults;
 
