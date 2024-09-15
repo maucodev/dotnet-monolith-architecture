@@ -3,6 +3,8 @@ using Evently.Api.Middleware;
 using Evently.Common.Application;
 using Evently.Common.Infrastructure;
 using Evently.Modules.Events.Infrastructure;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Serilog;
 
 #pragma warning disable S6966
@@ -31,6 +33,11 @@ builder.Services.AddInfrastructure(
     builder.Configuration.GetConnectionString("Database")!,
     builder.Configuration.GetConnectionString("Cache")!);
 
+builder.Services
+    .AddHealthChecks()
+    .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
+    .AddRedis(builder.Configuration.GetConnectionString("Cache")!);
+
 builder.Configuration.AddModuleConfiguration(["events"]);
 
 builder.Services.AddEventsModule(builder.Configuration);
@@ -45,6 +52,11 @@ if (app.Environment.IsDevelopment())
 }
 
 EventsModule.MapEndpoints(app);
+
+app.MapHealthChecks("health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
 
 app.UseHttpsRedirection();
 
