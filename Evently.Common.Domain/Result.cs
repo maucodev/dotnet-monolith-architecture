@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace Evently.Common.Domain;
 
@@ -37,6 +38,7 @@ public class Result<TValue> : Result
 {
     private readonly TValue? _value;
 
+    [JsonConstructor]
     public Result(TValue? value, bool isSuccess, Error error) : base(isSuccess, error)
     {
         _value = value;
