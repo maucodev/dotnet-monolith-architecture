@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Evently.Common.Application.Caching;
 using Evently.Common.Application.Clock;
 using Evently.Common.Application.Data;
@@ -30,14 +31,21 @@ public static class InfrastructureConfiguration
 
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
-        IConnectionMultiplexer connectionMultiplexer = ConnectionMultiplexer.Connect(redisConnectionString);
-
-        services.TryAddSingleton(connectionMultiplexer);
-
-        services.AddStackExchangeRedisCache(options =>
+        try
         {
-            options.ConnectionMultiplexerFactory = () => Task.FromResult(connectionMultiplexer);
-        });
+            IConnectionMultiplexer connectionMultiplexer = ConnectionMultiplexer.Connect(redisConnectionString);
+
+            services.TryAddSingleton(connectionMultiplexer);
+
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.ConnectionMultiplexerFactory = () => Task.FromResult(connectionMultiplexer);
+            });
+        }
+        catch
+        {
+            services.AddDistributedMemoryCache();
+        }
 
         services.TryAddSingleton<ICacheService, CacheService>();
     }
