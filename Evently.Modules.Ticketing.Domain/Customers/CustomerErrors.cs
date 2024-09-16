@@ -1,7 +1,7 @@
 ﻿using System;
 using Evently.Common.Domain;
 
-namespace Evently.Modules.Ticketing.Domain;
+namespace Evently.Modules.Ticketing.Domain.Customers;
 
 public static class CustomerErrors
 {
