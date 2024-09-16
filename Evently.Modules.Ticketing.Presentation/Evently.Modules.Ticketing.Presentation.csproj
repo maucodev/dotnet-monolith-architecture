@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference Include="..\Evently.Common.Application\Evently.Common.Application.csproj" />
+    <ProjectReference Include="..\Evently.Common.Presentation\Evently.Common.Presentation.csproj" />
     <ProjectReference Include="..\Evently.Modules.Ticketing.Application\Evently.Modules.Ticketing.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Carts\" />
   </ItemGroup>
 </Project>

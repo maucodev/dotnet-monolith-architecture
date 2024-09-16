@@ -1,4 +1,5 @@
 ﻿using Evently.Common.Presentation.Endpoints;
+using Evently.Modules.Ticketing.Application.Carts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,15 +11,15 @@ public static class TicketingModule
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddInfrastructure(configuration);
+        services.AddInfrastructure();
 
         services.AddEndpoints(Presentation.AssemblyReference.Assembly);
 
         return services;
     }
 
-    private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    private static void AddInfrastructure(this IServiceCollection services)
     {
-        // Will implement this later.
+        services.AddSingleton<CartService>();
     }
 }
