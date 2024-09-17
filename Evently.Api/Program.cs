@@ -37,6 +37,7 @@ builder.Services.AddApplication([
 ]);
 
 builder.Services.AddInfrastructure(
+    [TicketingModule.ConfigureConsumers],
     builder.Configuration.GetConnectionString("Database")!,
     builder.Configuration.GetConnectionString("Cache")!);
 

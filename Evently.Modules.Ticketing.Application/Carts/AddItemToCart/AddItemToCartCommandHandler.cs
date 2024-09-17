@@ -2,7 +2,6 @@
 using Evently.Common.Domain;
 using System.Threading.Tasks;
 using System.Threading;
-using Evently.Modules.Users.PublicApi;
 using Evently.Modules.Events.PublicApi;
 using Evently.Modules.Ticketing.Domain.Customers;
 using Evently.Modules.Ticketing.Domain.Events;
