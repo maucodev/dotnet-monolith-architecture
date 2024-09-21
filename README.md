@@ -13,23 +13,6 @@ The project follows the Clean Architecture principles. Each module in the projec
 3. **Infrastructure**: Deals with external systems like databases, external APIs, etc.
 4. **Presentation**: Manages how data is presented to the outside world, usually through APIs.
 
-### Project Structure
-
-- **API**: The entry point of the application, responsible for exposing HTTP APIs.
-  - `Evently.Api`: Handles all incoming HTTP requests and sends responses.
-  
-- **Common**: Contains shared logic used across different modules.
-  - `Evently.Common.Application`: Common application services and helpers.
-  - `Evently.Common.Domain`: Shared domain logic.
-  - `Evently.Common.Infrastructure`: Shared infrastructure services like logging, authentication, etc.
-  
-- **Modules**: Represents individual business features, with each feature broken down into layers.
-  - **Events**:
-    - `Evently.Modules.Events.Application`: Application logic for the events module.
-    - `Evently.Modules.Events.Domain`: Core business logic for events.
-    - `Evently.Modules.Events.Infrastructure`: Infrastructure dependencies specific to the events module.
-    - `Evently.Modules.Events.Presentation`: Presentation logic specific to events, such as API controllers.
-
 ## Prerequisites
 
 To run the project, you'll need:
