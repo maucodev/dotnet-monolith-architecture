@@ -3,6 +3,6 @@
     <Folder Include="TicketTypes\DomainEvents\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Evently.Common.Domain\Evently.Common.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Common\Evently.Common.Domain\Evently.Common.Domain.csproj" />
   </ItemGroup>
 </Project>
